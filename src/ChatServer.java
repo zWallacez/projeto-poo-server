@@ -19,7 +19,7 @@ public class ChatServer {
 	 * */
 	public void start() {
 		try(ServerSocket serverSocket = new ServerSocket(PORT)){
-			System.out.println("SUCCESS");
+			System.out.println("SERVER STARTED");
 			connectionLoop(serverSocket);
 		}
 		catch(IOException a) {
@@ -36,7 +36,6 @@ public class ChatServer {
 				/*
 				 * 
 				 * */
-				System.out.println(ipClient(clientSocket));
 				InputStream inputStream = clientSocket.getInputStream();
 				input = new BufferedReader(new InputStreamReader(inputStream));
 				msg = input.readLine();
