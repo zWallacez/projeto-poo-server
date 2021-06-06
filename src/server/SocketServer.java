@@ -20,7 +20,6 @@ public class SocketServer {
 	ArrayList<String> userConnected = new ArrayList<>();;
 
 	public SocketServer() {
-
 		outputClients = new ArrayList<>();
 	}
 
@@ -33,8 +32,6 @@ public class SocketServer {
 			// Aceitando conexão cliente
 			client = serverSocket.accept();
 
-			ip = ipClient(client);
-			System.out.println("Connection by: " + ip);
 
 			// adicionar saida do cliente a lista de clientes
 			PrintStream ps = new PrintStream(client.getOutputStream());
@@ -49,15 +46,12 @@ public class SocketServer {
 
 	}
 
-	public String ipClient(Socket client) {
-		return client.getInetAddress().getHostAddress();
-	}
 
-	public void sendInfo(PrintStream output) {
 
+	public void sendInfoToUser(PrintStream user) {
 		for (PrintStream cli : outputClients) {
-			if (output == cli) {
-				output.println("[SERVER]WHO_ONLINE:"+userConnected.toString());
+			if (user == cli) {
+				user.println("[SERVER]WHO_ONLINE:"+userConnected.toString());
 			}
 		}
 
