@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 
 public class StartServerSocket {
 
-	public static SocketServer ss = new SocketServer();
+	public static SocketServer socketServer = new SocketServer();
 	public static ServerSocket serverSocket;
 
 	public static void connectServer() {
@@ -14,7 +14,7 @@ public class StartServerSocket {
 			// Abrindo a Porta Servidor
 			serverSocket = new ServerSocket(Integer.parseInt(SERVER_INFO.PORT.get()));
 
-			ss.execute(serverSocket);
+			socketServer.execute(serverSocket);
 		} catch (IOException ioe) {
 			System.err.println("Erro: " + ioe.getMessage());
 		}

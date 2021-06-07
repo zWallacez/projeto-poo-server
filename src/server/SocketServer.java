@@ -32,7 +32,6 @@ public class SocketServer {
 			// Aceitando conexão cliente
 			client = serverSocket.accept();
 
-
 			// adicionar saida do cliente a lista de clientes
 			PrintStream ps = new PrintStream(client.getOutputStream());
 			outputClients.add(ps);
@@ -46,21 +45,21 @@ public class SocketServer {
 
 	}
 
-
-
 	public void sendInfoToUser(PrintStream user) {
 		for (PrintStream cli : outputClients) {
 			if (user == cli) {
-				user.println("[SERVER]WHO_ONLINE:"+userConnected.toString());
+				user.println("[SERVER]WHO_ONLINE:" + userConnected.toString());
 			}
 		}
 
 	}
-
+	
+	
 	public void distribuiMensagem(String msg) {
 
 		for (PrintStream cli : outputClients) {
-			cli.println(msg);
+			
+			cli.println(msg +"<br>");
 			System.out.println(msg);
 		}
 	}
