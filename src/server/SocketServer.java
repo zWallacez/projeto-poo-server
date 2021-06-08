@@ -11,8 +11,6 @@ import java.util.Scanner;
 
 public class SocketServer {
 
-	private String ip;
-
 	ServerSocket serverSocket;
 	Socket client;
 	Scanner sc;// Ler do console
@@ -45,22 +43,14 @@ public class SocketServer {
 
 	}
 
-	public void sendInfoToUser(PrintStream user) {
-		for (PrintStream cli : outputClients) {
-			if (user == cli) {
-				user.println("[SERVER]WHO_ONLINE:" + userConnected.toString());
-			}
-		}
-
-	}
 	
 	
 	public void distribuiMensagem(String msg) {
 
 		for (PrintStream cli : outputClients) {
 			
-			cli.println(msg +"<br>");
-			System.out.println(msg);
+			cli.println(msg+"<br>" );
+			
 		}
 	}
 
